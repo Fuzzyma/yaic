@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yaic Test</title>
+    <script src="../src/yaic.js"></script>
+    <script>
+        window.onload = function () {
+
+            var source = document.getElementById('dummypic')
+            var naturalWidth = source.naturalWidth
+            var naturalHeight = source.naturalHeight
+
+            for (var i = 0; i < 20; ++i) {
+
+                source.width = ~~(naturalWidth * Math.random() * 2)
+                source.height = ~~(source.width * naturalHeight / naturalWidth)
+
+                var width = ~~((Math.random() * 0.5 + 0.5) * source.width)
+                var height = ~~((Math.random() * 0.5 + 0.5) * source.height)
+                var targetWidth = ~~(Math.random() * source.width * 2)
+                var targetHeight = ~~(targetWidth * height / width)
+                var scale = ~~(Math.random() * 20 + 5) / 10
+                var rotate = ~~(Math.random() * 360) - 180
+                var translate = {
+                    x: ~~(Math.random() * 100) - 50,
+                    y: ~~(Math.random() * 100) - 50
+                }
+                var x = ~~(Math.random() * 100)
+                var y = ~~(Math.random() * 100)
+
+                source.style.transform = 'scale(' + scale + ') rotate(' + rotate + 'deg)'
+                source.style.left = translate.x + 'px'
+                source.style.top = translate.y + 'px'
+
+                var area = document.getElementById('clippingArea')
+                area.style.width = width + 'px'
+                area.style.height = height + 'px'
+                area.style.left = x + 'px'
+                area.style.top = y + 'px'
+
+                var canvas = yaic(
+                        source,
+                        {
+                            width: width,
+                            height: height,
+                            targetWidth: targetWidth,
+                            targetHeight: targetHeight,
+                            x: x,
+                            y: y
+                        }
+                )
+
+                var a = document.createElement('a')
+                a.download = source.width + 'x' + source.height + '_' + width + 'x' + height + '+' + translate.x + '+' + translate.y + 'to' + targetWidth + 'x' + targetHeight + '+' + x + '+' + y + '_' + rotate + 'deg_x_' + scale + '.png'
+                a.href = canvas.toDataURL()
+
+                a.innerHTML = a.download
+
+                document.getElementById('outputdiv').appendChild(a)
+                document.getElementById('outputdiv').appendChild(document.createElement('br'))
+
+            }
+
+        }
+
+
+    </script>
+</head>
+<body>
+
+<div style="width:1000px;height:500px;overflow:hidden;position:relative;">
+    <img src="images/dummy.jpg" id="dummypic" width="400px"
+         style="position:absolute;left:30px;top:30px;transform:scale(2) rotate(20deg)">
+    <div id="clippingArea"
+         style="width:400px;height:300px;border:2px solid black;position:absolute;left:28px;top:28px"></div>
+</div>
+<div id="outputdiv">
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "yaic",
+  "version": "1.0.0",
+  "authors": [
+    "Ulrich-Matthias Schäfer <ulima.ums@googlemail.com>"
+  ],
+  "description": "Takes a (css transformed) image and clips it to to a given area",
+  "main": "dist/yaic.js",
+  "keywords": [
+    "canvas",
+    "clip",
+    "image"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "spec/",
+    "src/",
+    "test/",
+    "gulpfile.js"
+  ]
+}

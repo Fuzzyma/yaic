@@ -1,0 +1,39 @@
+{
+  "name": "yaic",
+  "version": "1.0.0",
+  "description": "Takes a (css transformed) image and clips it to to a given area",
+  "main": "dist/yaic.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fuzzyma/yaic.js.git"
+  },
+  "keywords": [
+    "canvas",
+    "clip",
+    "image"
+  ],
+  "author": "Ulrich-Matthias Schäfer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fuzzyma/yaic.js/issues"
+  },
+  "homepage": "https://github.com/fuzzyma/yaic.js#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-mocha-phantomjs": "^0.11.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-standard": "^7.0.1",
+    "gulp-uglify": "^2.0.0",
+    "mocha": "^3.0.2",
+    "phantomjs-prebuilt": "^2.1.7",
+    "promise-polyfill": "^6.0.1",
+    "pump": "^1.0.1",
+    "should": "^11.1.0"
+  }
+}
