@@ -1,3 +1,12 @@
+/*!
+* yaic - Takes a (css transformed) image and clips it to to a given area
+* @version 1.0.0
+*
+* @copyright Ulrich-Matthias Schäfer
+* @license MIT
+*
+* BUILT: Mon Aug 22 2016 00:40:36 GMT+0200 (Mitteleuropäische Sommerzeit)
+*/;
 (function (w) {
   var yaic = w.yaic = function (img, area) {
     area.x = area.x || 0
