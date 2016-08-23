@@ -1,4 +1,4 @@
-# yaic (just another image clipper)
+# yaic (yet another image clipper)
 
 Takes a (css transformed) image and clips it to to a given area.
 
